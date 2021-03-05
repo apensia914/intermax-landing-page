@@ -17,8 +17,21 @@ ul, li {
 a {
   text-decoration: none; }
 
+#show-scene-0 #scroll-section-0 .sticky-element {
+  display: block; }
+
+#show-scene-1 #scroll-section-1 .sticky-element {
+  display: block; }
+
+#show-scene-2 #scroll-section-2 .sticky-element {
+  display: block; }
+
+#show-scene-3 #scroll-section-3 .sticky-element {
+  display: block; }
+
 .scroll-section {
-  padding-top: 50vh; }
+  padding-top: 50vh;
+  border: 1px solid black; }
   .scroll-section .main-message {
     text-align: center;
     height: 3em;
@@ -31,6 +44,12 @@ a {
       margin-bottom: .5em;
       font-size: 1.2rem;
       text-transform: uppercase; }
+  .scroll-section .sticky-element {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; }
 
 #scroll-section-0 h1 {
   font-size: 4rem;
