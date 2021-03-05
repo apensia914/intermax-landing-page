@@ -55,6 +55,9 @@ a {
 }
 
 .ceo-message {
+    max-width: 1000px;
+    margin: 0 auto;
+
     strong {
         font-size: 2.5rem;
         color: #000;
@@ -80,11 +83,15 @@ a {
 }
 
 .rnd-description {
+    max-width: 1000px;
+    margin: 0 auto;
     font-size: 2rem;
     padding: 0 1rem; 
 }
 
 .image-caption {
+    max-width: 1000px;
+    margin: 0 auto;
     padding: 0 1rem;
     font-size: 1.2rem;
 }
@@ -108,9 +115,7 @@ a {
     }
 
     .ceo-message {
-        max-width: 1000px;
         font-size: 1rem; 
-        margin: 0 auto;
 
         strong {
             font-size: 4rem;
@@ -128,6 +133,16 @@ a {
 
         .desc-message {
             width: 20%;
+        }
+    }
+
+    #scroll-section-3 {
+        .rnd-description {
+            font-size: 4vw; 
+        }
+
+        .image-caption {
+            font-size: 2rem;
         }
     }
 }
