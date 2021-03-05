@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 14px;
+    font-family: 'Noto Sans', sans-serif;
+    color: #000;
+    overflow-x: hidden;
+    letter-spacing: -0.05em;
+}
+
+ul, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+// Scroll Section (Mobile)
+
+.scroll-section {
+    padding-top: 50vh;
+
+    .main-message {
+        text-align: center;
+        height: 3em;
+        font-size: 1.5rem;
+        margin: 5px 0;
+
+        p {
+            line-height: 1.2;
+        }
+
+        small {
+            display: block;
+            margin-bottom: .5em;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+    }
+}
+
+#scroll-section-0 {
+    h1 {
+        font-size: 4rem;
+        text-transform: uppercase;
+        text-align: center;
+    }
+}
+
+.ceo-message {
+    strong {
+        font-size: 2.5rem;
+        color: #000;
+        float: left;
+        margin-right: .2em;
+    }
+}
+
+#scroll-section-2 {
+    .main-message {
+        font-size: 3.5rem;
+    }
+}
+
+.desc-message {
+    width: 50%;
+}
+
+.line {
+    width: 1px;
+    height: 80px;
+    background-color: #000;
+}
+
+.rnd-description {
+    font-size: 2rem;
+    padding: 0 1rem; 
+}
+
+.image-caption {
+    padding: 0 1rem;
+    font-size: 1.2rem;
+}
+
+#footer {
+    text-align: center;
+    height: 10rem;
+}
+
+// Media Query (Desktop)
+
+@media screen and (max-width: 1024px) {
+    #scroll-section-0 {
+        h1 {
+            font-size: 9vw;
+        }
+
+        .main-message {
+            font-size: 4vw;
+        }
+    }
+
+    .ceo-message {
+        max-width: 1000px;
+        font-size: 1rem; 
+        margin: 0 auto;
+
+        strong {
+            font-size: 4rem;
+        }
+    }
+
+    #scroll-section-2 {
+        .main-message {
+            font-size: 6vw;
+
+            small {
+                font-size: 1.5vw;
+            }
+        }
+
+        .desc-message {
+            width: 20%;
+        }
+    }
+}
