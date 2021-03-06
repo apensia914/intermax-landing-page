@@ -22,7 +22,11 @@
                 messageFourth: document.querySelector('#scroll-section-0 .main-message.fourth')
             },
             values: {
-                messageFirst_opacity: [0, 1],
+                messageFirst_opacity_in: [0, 1, {start: 0.1, end: 0.2}],
+                messageFirst_opacity_out: [1, 0, {start: 0.25, end: 0.3}],
+                messageFirst_translateY_in: [20, 0, {start: 0.1, end: 0.2}],
+                messageFirst_translateY_out: [0, -20, {start: 0.25, end: 0.3}],
+                messageSecond_opacity_in: [0, 1, {start: 0.3, end: 0.4}],
             }
         },
         {   
@@ -78,8 +82,25 @@
     const calcValues = (values, currentYOffset) => { 
         let rv;
         // Ratio of scrolled range on the current scene
-        let scrollRatio = currentYOffset / sceneInfo[currentScene].scrollHeight;
-        rv = scrollRatio * (values[1] - values[0]) + values[0];
+        const scrollHeight = sceneInfo[currentScene].scrollHeight;
+        const scrollRatio = currentYOffset / scrollHeight;
+        
+        if (values.length === 3) {
+            // Carry out animation within start - end section
+            const partialScrollStart = values[2].start * scrollHeight;
+            const partialScrollEnd = values[2].end * scrollHeight;
+            const partialScrollHeight = partialScrollEnd - partialScrollStart;
+
+            if (currentYOffset >= partialScrollStart && currentYOffset <= partialScrollEnd) {
+                rv = (currentYOffset - partialScrollStart) / partialScrollHeight * (values[1] - values[0]) + values[0];
+            } else if (currentYOffset < partialScrollStart) {
+                rv = values[0];
+            } else if (currentYOffset > partialScrollEnd) {
+                rv = values[1];
+            }
+        } else {
+            rv = scrollRatio * (values[1] - values[0]) + values[0];
+        }
         return rv;
     }
 
@@ -88,14 +109,23 @@
         const objs = sceneInfo[currentScene].objs;
         const values = sceneInfo[currentScene].values;
         const currentYOffset = yOffset - prevScrollHeight;
-
-        console.log(currentScene);
+        const scrollHeight = sceneInfo[currentScene].scrollHeight;
+        const scrollRatio = (yOffset - prevScrollHeight) / scrollHeight; 
 
         switch (currentScene) {
             case 0: 
-                let messageFirst_opacity_in = calcValues(values.messageFirst_opacity, currentYOffset);
-                objs.messageFirst.style.opacity = messageFirst_opacity_in;
-                console.log(messageFirst_opacity_in);
+                let messageFirst_opacity_in = calcValues(values.messageFirst_opacity_in, currentYOffset);
+                let messageFirst_opacity_out = calcValues(values.messageFirst_opacity_out, currentYOffset);
+                let messageFirst_translateY_in = calcValues(values.messageFirst_translateY_in, currentYOffset);
+                let messageFirst_translateY_out = calcValues(values.messageFirst_translateY_out, currentYOffset);
+
+                if (scrollRatio <= 0.22) {
+                    objs.messageFirst.style.opacity = messageFirst_opacity_in;
+                    objs.messageFirst.style.transform = `translateY(${messageFirst_translateY_in}%)`;
+                } else {
+                    objs.messageFirst.style.opacity = messageFirst_opacity_out;
+                    objs.messageFirst.style.transform = `translateY(${messageFirst_translateY_out}%)`;
+                }
                 break;
             case 1:
                 break;
