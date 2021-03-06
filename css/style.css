@@ -33,10 +33,15 @@ a {
   padding-top: 50vh;
   border: 1px solid black; }
   .scroll-section .main-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     height: 3em;
-    font-size: 1.5rem;
-    margin: 5px 0; }
+    font-size: 2.5rem;
+    margin: 5px 0;
+    height: 3em;
+    opacity: 0; }
     .scroll-section .main-message p {
       line-height: 1.2; }
     .scroll-section .main-message small {
