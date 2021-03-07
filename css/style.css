@@ -9,7 +9,8 @@ body {
   font-family: 'Noto Sans', sans-serif;
   color: #000;
   overflow-x: hidden;
-  letter-spacing: -0.05em; }
+  letter-spacing: -0.05em;
+  height: 500vh; }
 
 ul, li {
   list-style: none; }
@@ -30,8 +31,7 @@ a {
   display: block; }
 
 .scroll-section {
-  padding-top: 50vh;
-  border: 1px solid black; }
+  padding-top: 50vh; }
   .scroll-section .main-message {
     display: flex;
     justify-content: center;
@@ -55,11 +55,21 @@ a {
     position: fixed;
     left: 0;
     width: 100%; }
+  .scroll-section .sticky-element-canvas {
+    top: 0;
+    height: 100vh; }
+    .scroll-section .sticky-element-canvas canvas {
+      position: absolute;
+      top: 50%;
+      left: 50%; }
 
 #scroll-section-0 h1 {
   font-size: 4rem;
   text-transform: uppercase;
-  text-align: center; }
+  text-align: center;
+  position: relative;
+  top: -10vh;
+  z-index: 5; }
 
 .ceo-message {
   max-width: 1000px;
@@ -74,7 +84,8 @@ a {
   font-size: 3.5rem; }
 
 .desc-message {
-  width: 50%; }
+  width: 50%;
+  opacity: 0; }
 
 .line {
   width: 1px;
