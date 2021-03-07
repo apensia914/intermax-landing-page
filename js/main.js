@@ -113,14 +113,14 @@
         let imageElement;
         for (let i = 0; i < sceneInfo[0].values.videoImageCount; i++) {
             imageElement = new Image();
-            imageElement.src = `./images/imx_logo_${1000+i}.jpg`;
+            imageElement.src = `./images/video1/imx_logo_${1000+i}.jpg`;
             sceneInfo[0].objs.videoImages.push(imageElement);
         }
 
         let imageElementSecond;
         for (let i = 0; i < sceneInfo[2].values.videoImageCount; i++) {
             imageElementSecond = new Image();
-            imageElementSecond.src = `./images/imx_logo_${1000+i}.jpg`;
+            imageElementSecond.src = `./images/video1/imx_logo_${1000+i}.jpg`;
             sceneInfo[2].objs.videoImages.push(imageElementSecond);
         }
     }
