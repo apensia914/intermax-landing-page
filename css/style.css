@@ -18,18 +18,6 @@ ul, li {
 a {
   text-decoration: none; }
 
-#show-scene-0 #scroll-section-0 .sticky-element {
-  display: block; }
-
-#show-scene-1 #scroll-section-1 .sticky-element {
-  display: block; }
-
-#show-scene-2 #scroll-section-2 .sticky-element {
-  display: block; }
-
-#show-scene-3 #scroll-section-3 .sticky-element {
-  display: block; }
-
 .scroll-section {
   padding-top: 50vh; }
   .scroll-section .main-message {
@@ -55,13 +43,19 @@ a {
     position: fixed;
     left: 0;
     width: 100%; }
+    .scroll-section .sticky-element .desc-message {
+      width: 45%;
+      font-weight: bold;
+      opacity: 0; }
   .scroll-section .sticky-element-canvas {
     top: 0;
-    height: 100vh; }
+    height: 100%; }
     .scroll-section .sticky-element-canvas canvas {
       position: absolute;
       top: 50%;
       left: 50%; }
+  .scroll-section .image-blend-canvas {
+    border: 3px solid red; }
 
 #scroll-section-0 h1 {
   font-size: 4rem;
@@ -73,15 +67,44 @@ a {
 
 .ceo-message {
   max-width: 1000px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding: 0 1rem;
+  font-size: 1.2rem;
+  color: #888; }
   .ceo-message strong {
     font-size: 2.5rem;
-    color: #000;
+    color: #1d1d1f;
     float: left;
     margin-right: .2em; }
 
-#scroll-section-2 .main-message {
+.main-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 35vh;
+  margin: 5px 0;
+  height: 3em;
+  font-size: 2.5rem;
+  opacity: 0; }
+  .main-message p {
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.2; }
+  .main-message small {
+    display: block;
+    margin-bottom: 0.5em;
+    font-size: 1.2rem; }
+
+#scroll-section-2 .main-mssage {
   font-size: 3.5rem; }
+
+#scroll-section-2 .second {
+  top: 10%;
+  left: 40%; }
+
+#scroll-section-2 .third {
+  top: 10%;
+  left: 40%; }
 
 .desc-message {
   width: 50%;
@@ -90,23 +113,47 @@ a {
 .line {
   width: 1px;
   height: 80px;
-  background-color: #000; }
+  background-color: #1d1d1f; }
 
 .rnd-description {
   max-width: 1000px;
   margin: 0 auto;
   font-size: 2rem;
-  padding: 0 1rem; }
+  padding: 0 1rem;
+  color: #888; }
+  .rnd-description strong {
+    color: #1d1d1f; }
 
 .image-caption {
   max-width: 1000px;
-  margin: 0 auto;
+  margin: -24rem auto 0;
   padding: 0 1rem;
-  font-size: 1.2rem; }
+  font-size: 1.2rem;
+  color: #888; }
+
+#scroll-section-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
 
 #footer {
   text-align: center;
   height: 10rem; }
+
+#show-scene-0 #scroll-section-0 .sticky-element {
+  display: block;
+  will-change: transform, opacity; }
+
+#show-scene-1 #scroll-section-1 .sticky-element {
+  display: block;
+  will-change: transform, opacity; }
+
+#show-scene-2 #scroll-section-2 .sticky-element {
+  display: block;
+  will-change: transform, opacity; }
+
+#show-scene-3 #scroll-section-3 .sticky-element {
+  display: block; }
 
 @media screen and (max-width: 1024px) {
   #scroll-section-0 h1 {

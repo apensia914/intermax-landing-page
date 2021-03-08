@@ -25,37 +25,7 @@ a {
 
 // Scroll Section (Mobile)
 
-#show-scene-0 {
-    #scroll-section-0 {
-        .sticky-element {
-            display: block;
-        }
-    }
-}
 
-#show-scene-1 {
-    #scroll-section-1 {
-        .sticky-element {
-            display: block;
-        }
-    }
-}
-
-#show-scene-2 {
-    #scroll-section-2 {
-        .sticky-element {
-            display: block;
-        }
-    }
-}
-
-#show-scene-3 {
-    #scroll-section-3 {
-        .sticky-element {
-            display: block;
-        }
-    }
-}
 
 .scroll-section {
     padding-top: 50vh;
@@ -89,17 +59,27 @@ a {
         position: fixed;
         left: 0;
         width: 100%;
+
+        .desc-message {
+            width: 45%;
+            font-weight: bold;
+            opacity: 0;
+        }
     }
 
     .sticky-element-canvas {
         top: 0;
-        height: 100vh;
+        height: 100%;
 
         canvas {
             position: absolute;
             top: 50%;
             left: 50%;
         }
+    }
+
+    .image-blend-canvas {
+        border: 3px solid red;
     }
 }
 
@@ -117,18 +97,54 @@ a {
 .ceo-message {
     max-width: 1000px;
     margin: 0 auto;
+    padding: 0 1rem;
+    font-size: 1.2rem;
+    color: #888;
 
     strong {
         font-size: 2.5rem;
-        color: #000;
+        color: rgb(29, 29, 31);
         float: left;
         margin-right: .2em;
     }
 }
 
+.main-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 35vh;
+    margin: 5px 0;
+    height: 3em;
+    font-size: 2.5rem;
+    opacity: 0;
+
+    p {
+        font-weight: bold;
+        text-align: center;
+        line-height: 1.2;
+    }
+
+    small {
+        display: block;
+        margin-bottom: 0.5em;
+        font-size: 1.2rem;
+    }
+}
+
 #scroll-section-2 {
-    .main-message {
+    .main-mssage {
         font-size: 3.5rem;
+    }
+
+    .second {
+        top: 10%;
+        left: 40%;
+    }
+
+    .third {
+        top: 10%;
+        left: 40%;
     }
 }
 
@@ -140,27 +156,74 @@ a {
 .line {
     width: 1px;
     height: 80px;
-    background-color: #000;
+    background-color: rgb(29, 29, 31);
 }
 
 .rnd-description {
     max-width: 1000px;
     margin: 0 auto;
     font-size: 2rem;
-    padding: 0 1rem; 
+    padding: 0 1rem;
+    color: #888;
+    
+    strong {
+        color: rgb(29, 29, 31);
+    }
 }
 
 .image-caption {
     max-width: 1000px;
-    margin: 0 auto;
+    margin: -24rem auto 0;
     padding: 0 1rem;
     font-size: 1.2rem;
+    color: #888;
+}
+
+#scroll-section-3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
 #footer {
     text-align: center;
     height: 10rem;
+}
+
+#show-scene-0 {
+    #scroll-section-0 {
+        .sticky-element {
+            display: block;
+            will-change: transform, opacity;
+        }
+    }
+}
+
+#show-scene-1 {
+    #scroll-section-1 {
+        .sticky-element {
+            display: block;
+            will-change: transform, opacity;
+        }
+    }
+}
+
+#show-scene-2 {
+    #scroll-section-2 {
+        .sticky-element {
+            display: block;
+            will-change: transform, opacity;
+        }
+    }
+}
+
+#show-scene-3 {
+    #scroll-section-3 {
+        .sticky-element {
+            display: block;
+        }
+    }
 }
 
 // Media Query (Desktop)

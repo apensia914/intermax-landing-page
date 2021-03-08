@@ -101,10 +101,18 @@
             scrollHeight: 0, 
             objs: {
                 container: document.querySelector('#scroll-section-3'),
-                imageCaption: document.querySelector('.image-caption')
+                imageCaption: document.querySelector('.image-caption'),
+                canvas: document.querySelector('.image-blend-canvas'),
+                context: document.querySelector('.image-blend-canvas').getContext('2d'),
+                imagesPath: [
+                    '../images/factory1.png',
+                    '../images/factory2.png'
+                ],
+                images: []
             },
             values: {
-
+                rect1X: [0, 0, {start: 0, end: 0}],
+                rect2X: [0, 0, {start: 0, end: 0}],
             }
         },
     ];
@@ -122,6 +130,12 @@
             imageElementSecond = new Image();
             imageElementSecond.src = `./images/video1/imx_logo_${1000+i}.jpg`;
             sceneInfo[2].objs.videoImages.push(imageElementSecond);
+        }
+
+        for (let i = 0; i <sceneInfo[3].objs.imagesPath.length; i++) {
+            imageElementThird = new Image();
+            imageElementThird.src = sceneInfo[3].objs.imagesPath[i];
+            sceneInfo[3].objs.images.push(imageElementThird);
         }
     }
     setCanvasImages();
@@ -289,6 +303,34 @@
 
         case 3:
             // console.log('3 play');
+            const widthRatio = window.innerWidth / objs.canvas.width;
+            const heightRatio = window.innerHeight / objs.canvas.height;
+            let canvasScaleRatio;
+
+            if (widthRatio <= heightRatio) {
+                canvasScaleRatio = heightRatio;
+                console.log('height');
+            } else {
+                canvasScaleRatio = widthRatio;
+                console.log('height');
+
+            }
+
+            objs.canvas.style.transform = `scale(${canvasScaleRatio})`;
+            objs.context.drawImage(objs.images[0], 0, 0);
+
+            const recalculatedInnerWidth = window.innerWidth / canvasScaleRatio;
+            const recalculatedInnerHeight = window.innerHeight / canvasScaleRatio;
+
+            const whiteRectWidth = recalculatedInnerWidth * 0.15;
+            values.rect1X[0] = (objs.canvas.width = recalculatedInnerWidth) / 2;
+            values.rect1X[1] = values.rect1X[0] - whiteRectWidth;
+            values.rect2X[0] = values.rect1X[0] + recalculatedInnerWidth - whiteRectWidth;
+            values.rect2X[1] = values.rect2X[0] + whiteRectWidth;
+
+            objs.context.fillRect(values.rect1X[0], 0, parseInt(whiteRectWidth), objs.canvas.height);
+            objs.context.fillRect(values.rect2X[0], 0, parseInt(whiteRectWidth), objs.canvas.height);
+
             break;
     }
 }
